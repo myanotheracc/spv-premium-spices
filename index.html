@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPV Global | Premium Spices</title>
     
-    <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -14,58 +13,100 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="logo">SPV GLOBAL</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#products">Premium Range</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">Quality</a></li>
+            <li><a href="#products">Collection</a></li>
+            <li><a href="#contact" class="btn-outline">Get Quote</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>The Essence of <br> Authentic Flavor</h1>
-            <p>Export-quality Turmeric, Chilli, and Cardamom sourced directly from the finest farms.</p>
+            <p>Premium, export-quality Turmeric, Chilli, and Cardamom sourced directly from the finest Indian farms.</p>
             <a href="#products" class="btn">Explore Our Spices</a>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">A Tradition of Excellence</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>🌿 Farm to Export</h3>
+                <p>Direct sourcing from certified farms across India. No middlemen, ensuring full traceability and freshness.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🏆 APEDA Certified</h3>
+                <p>Fully certified for international food safety and quality standards, trusted by buyers in over 50 countries.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🔬 Lab Tested</h3>
+                <p>Every batch is rigorously lab-tested for purity, moisture, and essential oils before global shipping.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="products" class="products-section">
         <h2 class="section-title">Our Premium Selection</h2>
-        
         <div class="product-grid">
-            <!-- Product 1: Turmeric -->
+            
             <div class="product-card">
                 <div class="product-image turmeric-bg"></div>
                 <div class="product-info">
                     <h3>Golden Turmeric Powder</h3>
-                    <p>High curcumin content, APEDA certified, directly from the farms.</p>
+                    <p>High curcumin content, vibrant color, and rich earthy flavor. Processed under strict quality control.</p>
                 </div>
             </div>
 
-            <!-- Product 2: Chilli -->
             <div class="product-card">
                 <div class="product-image chilli-bg"></div>
                 <div class="product-info">
                     <h3>Fiery Chilli Powder</h3>
-                    <p>Rich red color and perfect heat, processed under strict quality control.</p>
+                    <p>Rich red color and perfect heat balance. Crafted from the finest hand-picked dried red chillies.</p>
                 </div>
             </div>
 
-            <!-- Product 3: Cardamom -->
             <div class="product-card">
                 <div class="product-image cardamom-bg"></div>
                 <div class="product-info">
                     <h3>Premium Cardamom</h3>
-                    <p>Hand-picked green pods offering intense, aromatic flavor.</p>
+                    <p>Hand-picked, plump green pods offering intense, aromatic flavor for both culinary and wellness uses.</p>
                 </div>
             </div>
+
         </div>
     </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="section-title text-white">Request a Wholesale Quote</h2>
+            <p class="contact-subtitle">Tell us your requirements and our team will respond within 24 hours.</p>
+            
+            <form id="quote-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <input type="text" placeholder="Company Name & Country" required>
+                <textarea rows="5" placeholder="Which products are you interested in? (Include estimated volume)" required></textarea>
+                <button type="submit" class="btn btn-full">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">SPV GLOBAL</div>
+            <p>✦ Made in India · Trusted Worldwide ✦</p>
+            <p>&copy; 2026 SPV Global. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
