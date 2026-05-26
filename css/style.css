@@ -30,7 +30,7 @@ h1, h2, h3 {
 
 .text-center { text-align: center; }
 
-/* Top Contact Line - Now with Scrolling Animation */
+/* Top Contact Line */
 .top-bar {
     background-color: var(--primary-green);
     color: white;
@@ -55,13 +55,13 @@ h1, h2, h3 {
     100% { transform: translateX(-100%); }
 }
 
-/* Header Navbar & New Logo CSS */
+/* Header Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%; /* Removed vertical padding to lock the height */
-    height: 80px; /* FIXED HEIGHT: The white strip will never grow past this */
+    padding: 0 5%; 
+    height: 80px; /* FIXED HEIGHT */
     background-color: var(--bg-pure-white);
     border-bottom: 2px solid var(--primary-green);
     position: sticky;
@@ -69,27 +69,31 @@ h1, h2, h3 {
     z-index: 100;
 }
 
-.logo { 
+/* --- LOGO OPTIMIZATIONS (Perfectly Round Badge) --- */
+.navbar .logo { 
     display: flex; 
     align-items: center; 
     text-decoration: none; 
     position: relative;
-    width: 140px; /* Reserves space in the menu so text doesn't slide left */
+    width: 140px; /* Reserves space so navigation links don't slide left */
     height: 100%;
 }
 
-.logo img { 
-    position: absolute; /* Takes the image out of the height calculation */
-    top: 5px; /* Starts slightly below the top green bar */
-    height: 130px; /* BIG LOGO */
-    width: auto; 
+.navbar .logo img { 
+    position: absolute; 
+    top: 5px; /* Hangs slightly below the top */
+    height: 130px; 
+    width: 130px; /* Equal width and height for a perfect circle */
     object-fit: contain; 
+    background-color: var(--bg-pure-white); /* Solid white inside the circle */
+    border-radius: 50%; /* Makes the logo perfectly round */
+    padding: 8px; /* Creates a clean white border/rim around the logo */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Soft shadow for the circular badge */
     transition: transform 0.3s ease; 
-    z-index: 110; /* Ensures the hanging part stays above the hero image */
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); 
+    z-index: 110; 
 }
 
-.logo img:hover {
+.navbar .logo img:hover {
     transform: scale(1.05);
 }
 
@@ -124,6 +128,7 @@ h1, h2, h3 {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    margin-left: auto; /* Ensures it pushes to the far right on mobile */
 }
 .hamburger span {
     width: 25px;
@@ -219,7 +224,7 @@ h1, h2, h3 {
 .portfolio-section { padding: 6rem 5%; background-color: var(--bg-pure-white); border-top: 1px solid #eee; }
 .spice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 1300px; margin: 0 auto; }
 
-/* Flexbox Layout for Cards ensuring buttons align to bottom */
+/* Flexbox Layout for Cards */
 .spice-card { 
     background: var(--bg-pure-white); 
     border: 2px solid var(--border-green); 
@@ -231,7 +236,7 @@ h1, h2, h3 {
 }
 .spice-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(76, 175, 80, 0.15); }
 
-/* Auto-Scrolling Carousel CSS */
+/* Auto-Scrolling Carousel */
 .carousel-container {
     width: 100%;
     height: 280px;
@@ -241,12 +246,12 @@ h1, h2, h3 {
 }
 .carousel {
     display: flex;
-    width: 500%; /* 5 images x 100% */
+    width: 500%; 
     height: 100%;
     animation: slide-carousel 20s infinite;
 }
 .carousel img {
-    width: 20%; /* 100% / 5 images */
+    width: 20%; 
     height: 100%;
     object-fit: cover;
 }
@@ -260,7 +265,6 @@ h1, h2, h3 {
     100% { transform: translateX(0); }
 }
 
-/* Ensure info text pushes button to bottom */
 .spice-info { 
     padding: 1.5rem; 
     background-color: var(--bg-pure-white);
@@ -291,12 +295,19 @@ input:focus, textarea:focus { border-color: var(--primary-green); box-shadow: 0 
 
 /* Corporate Footer */
 footer { background-color: var(--primary-green); color: white; text-align: center; padding: 4rem 5%; }
-footer .logo { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-footer .logo img { height: 90px; }
+footer .logo { display: flex; justify-content: center; margin-bottom: 1.5rem; text-decoration: none; }
+footer .logo img { 
+    height: 90px; 
+    width: 90px;
+    border-radius: 50%; /* Keeps footer logo perfectly round too */
+    background-color: var(--bg-pure-white);
+    padding: 6px;
+    object-fit: contain;
+}
 .footer-contact { margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.8; }
 .footer-rights { color: #e8f5e9; font-size: 0.85rem; }
 
-/* Cursive Font for SPV Global Enterprises */
+/* Cursive Font */
 .cursive-text {
     font-family: 'Dancing Script', cursive;
     font-size: 1.4rem;
@@ -305,7 +316,7 @@ footer .logo img { height: 90px; }
     color: #FFFFFF;
 }
 
-/* --- NEW: Floating WhatsApp Button --- */
+/* Floating WhatsApp Button */
 .floating-wa {
     position: fixed;
     bottom: 30px;
@@ -342,11 +353,28 @@ footer .logo img { height: 90px; }
 }
 
 @media (max-width: 768px) {
+    /* Navbar specific mobile adjustments */
+    .navbar {
+        padding: 0 20px; /* Gives nice spacing on the edges */
+    }
+    
+    /* Shrink the logo perfectly on mobile */
+    .navbar .logo {
+        width: 90px; /* Reduced width block */
+    }
+    
+    .navbar .logo img {
+        height: 85px;
+        width: 85px;
+        top: 8px; /* Tucks it slightly further up on mobile so it doesn't block hero content */
+        padding: 5px;
+    }
+
     /* Hamburger & Mobile Nav */
     .hamburger { display: flex; }
     .nav-links {
         position: absolute;
-        top: 100%; /* Will attach perfectly to the bottom of the 80px locked navbar */
+        top: 100%; /* Attaches directly below the fixed 80px nav */
         left: 0;
         width: 100%;
         background-color: var(--bg-pure-white);
@@ -407,5 +435,3 @@ footer .logo img { height: 90px; }
     .hero h1 { font-size: 2.2rem; }
     .cert-card { flex-direction: column; align-items: center; text-align: center; }
 }
-
-
