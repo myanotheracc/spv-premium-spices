@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, .logo {
+h1, h2, h3 {
     font-family: 'Playfair Display', serif;
 }
 
@@ -55,7 +55,7 @@ h1, h2, h3, .logo {
     100% { transform: translateX(-100%); }
 }
 
-/* Header Navbar */
+/* Header Navbar & New Logo CSS */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -67,7 +67,23 @@ h1, h2, h3, .logo {
     top: 0;
     z-index: 100;
 }
-.logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-green); letter-spacing: 1px; }
+
+.logo { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+}
+
+.logo img { 
+    height: 50px; /* Adjust this to make your logo bigger or smaller in the navbar */
+    width: auto; 
+    object-fit: contain; 
+    transition: transform 0.3s ease; 
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
 
 .nav-links { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
 .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
@@ -246,7 +262,8 @@ input:focus, textarea:focus { border-color: var(--primary-green); box-shadow: 0 
 
 /* Corporate Footer */
 footer { background-color: var(--primary-green); color: white; text-align: center; padding: 4rem 5%; }
-footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
+footer .logo { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+footer .logo img { height: 60px; /* Adjust footer logo size here */ filter: brightness(0) invert(1); /* Optional: This turns a dark logo white for the dark footer. Remove if your logo already looks good on dark backgrounds */ }
 .footer-contact { margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.8; }
 .footer-rights { color: #e8f5e9; font-size: 0.85rem; }
 
@@ -297,5 +314,3 @@ footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
     .hero h1 { font-size: 2.2rem; }
     .cert-card { flex-direction: column; align-items: center; text-align: center; }
 }
-
-/* (Removed old specific Cloudinary image classes since we use img tags in the carousel now) */
