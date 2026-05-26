@@ -1,7 +1,8 @@
 :root {
-    --primary-green: #1E5631;
-    --light-green: #A4DE02;
-    --border-green: #2E7D32;
+    /* Even lighter, fresher green palette */
+    --primary-green: #4CAF50; 
+    --light-green: #C8E6C9;
+    --border-green: #81C784;
     --title-blue: #0D47A1;
     --bg-pure-white: #FFFFFF;
     --text-dark: #212121;
@@ -29,19 +30,29 @@ h1, h2, h3, .logo {
 
 .text-center { text-align: center; }
 
-/* Top Contact Line */
+/* Top Contact Line - Now with Scrolling Animation */
 .top-bar {
     background-color: var(--primary-green);
     color: white;
-    padding: 8px 5%;
+    padding: 8px 0;
     font-size: 0.85rem;
     font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
 }
+
 .top-bar-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 0 auto;
+    display: inline-block;
+    animation: scroll-left 15s linear infinite;
+}
+
+.top-bar-container span {
+    margin-right: 4rem;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Header Navbar */
@@ -90,7 +101,7 @@ h1, h2, h3, .logo {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.btn:hover { background-color: #153e22; }
+.btn:hover { background-color: #388E3C; }
 .btn-full { width: 100%; margin-top: 1rem; }
 .btn-nav {
     background-color: var(--primary-green);
@@ -99,7 +110,31 @@ h1, h2, h3, .logo {
     border-radius: 4px;
 }
 
-/* Corporate Hero Banner (Deep & Rich) */
+/* WhatsApp Outline Button styling */
+.btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.btn-wa:hover { background-color: #1ebe57; }
+.btn-wa svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Corporate Hero Banner */
 .hero {
     padding: 10rem 5%;
     background: linear-gradient(rgba(10, 15, 10, 0.6), rgba(0, 0, 0, 0.8)),
@@ -135,20 +170,67 @@ h1, h2, h3, .logo {
 .info-box { padding: 2.5rem; border-left: 4px solid var(--primary-green); background-color: #f9f9f9; }
 .info-box h3 { color: var(--title-blue); font-size: 1.4rem; margin-bottom: 1rem; }
 
-/* Custom Green Border Grid Setup */
+/* Portfolio Container Updates */
 .portfolio-section { padding: 6rem 5%; background-color: var(--bg-pure-white); border-top: 1px solid #eee; }
 .spice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 1300px; margin: 0 auto; }
-.spice-card { background: var(--bg-pure-white); border: 2px solid var(--border-green); border-radius: 6px; overflow: hidden; transition: transform 0.3s; }
-.spice-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(30,86,49,0.1); }
-.spice-image { height: 280px; background-color: #eee; }
-.spice-info { padding: 1.5rem; background-color: var(--bg-pure-white); }
+
+/* Flexbox Layout for Cards ensuring buttons align to bottom */
+.spice-card { 
+    background: var(--bg-pure-white); 
+    border: 2px solid var(--border-green); 
+    border-radius: 6px; 
+    overflow: hidden; 
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.spice-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(76, 175, 80, 0.15); }
+
+/* Auto-Scrolling Carousel CSS */
+.carousel-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    background-color: #eee;
+}
+.carousel {
+    display: flex;
+    width: 500%; /* 5 images x 100% */
+    height: 100%;
+    animation: slide-carousel 20s infinite;
+}
+.carousel img {
+    width: 20%; /* 100% / 5 images */
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slide-carousel {
+    0%, 15% { transform: translateX(0); }
+    20%, 35% { transform: translateX(-20%); }
+    40%, 55% { transform: translateX(-40%); }
+    60%, 75% { transform: translateX(-60%); }
+    80%, 95% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+
+/* Ensure info text pushes button to bottom */
+.spice-info { 
+    padding: 1.5rem; 
+    background-color: var(--bg-pure-white);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .spice-info h3 { color: var(--title-blue); font-size: 1.4rem; margin-bottom: 0.75rem; }
 
 /* Certifications Section */
 .cert-section { padding: 6rem 5%; background-color: #f4fbf4; border-top: 1px solid #e0ebe0; }
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1300px; margin: 0 auto; }
 .cert-card { background-color: var(--bg-pure-white); border: 1px solid var(--border-green); border-radius: 8px; padding: 2rem; display: flex; align-items: flex-start; gap: 1.5rem; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-.cert-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(30,86,49,0.08); border-color: var(--title-blue); }
+.cert-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(76, 175, 80, 0.15); border-color: var(--title-blue); }
 .cert-icon { font-size: 2.5rem; background-color: #e8f5e9; padding: 15px; border-radius: 8px; line-height: 1; }
 .cert-details h3 { color: var(--title-blue); font-size: 1.3rem; margin-bottom: 0.25rem; font-family: 'Inter', sans-serif; font-weight: 700; }
 .cert-number { display: inline-block; background-color: var(--primary-green); color: white; font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem; letter-spacing: 0.5px; }
@@ -160,13 +242,13 @@ h1, h2, h3, .logo {
 form { display: flex; flex-direction: column; gap: 1.25rem; }
 .input-group { display: flex; gap: 1.25rem; }
 input, textarea { width: 100%; padding: 16px; background-color: var(--bg-pure-white); border: 1px solid #ccc; color: var(--text-dark); font-family: 'Inter', sans-serif; outline: none; border-radius: 4px; }
-input:focus, textarea:focus { border-color: var(--primary-green); box-shadow: 0 0 5px rgba(30,86,49,0.2); }
+input:focus, textarea:focus { border-color: var(--primary-green); box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); }
 
 /* Corporate Footer */
 footer { background-color: var(--primary-green); color: white; text-align: center; padding: 4rem 5%; }
 footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
 .footer-contact { margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.8; }
-.footer-rights { color: #b2dfdb; font-size: 0.85rem; }
+.footer-rights { color: #e8f5e9; font-size: 0.85rem; }
 
 /* ========================================= */
 /* MOBILE OPTIMIZATION MEDIA QUERIES         */
@@ -176,9 +258,6 @@ footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
 }
 
 @media (max-width: 768px) {
-    /* Top Bar Mobile */
-    .top-bar-container { flex-direction: column; text-align: center; gap: 5px; }
-    
     /* Hamburger & Mobile Nav */
     .hamburger { display: flex; }
     .nav-links {
@@ -192,10 +271,10 @@ footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
         padding: 2rem 0;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         border-top: 1px solid #eee;
-        display: none; /* Hidden by default on mobile */
+        display: none; 
     }
     .nav-links.active {
-        display: flex; /* Shown when hamburger is clicked */
+        display: flex; 
     }
     .nav-links li { margin-bottom: 1rem; }
     .btn-nav { width: 200px; text-align: center; }
@@ -219,10 +298,4 @@ footer .logo { color: white; margin-bottom: 1rem; font-size: 2rem; }
     .cert-card { flex-direction: column; align-items: center; text-align: center; }
 }
 
-/* ========================================= */
-/* CLOUDINARY IMAGES (PASTE YOUR URLs HERE)  */
-/* ========================================= */
-.turmeric-fingers { background: url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779695497/ChatGPT_Image_May_25_2026_01_05_05_PM_gaqlql.png') center/cover no-repeat; }
-.turmeric-powder { background: url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779695483/ChatGPT_Image_May_25_2026_01_06_16_PM_ndej7j.png') center/cover no-repeat; }
-.red-chillies { background: url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779695510/ChatGPT_Image_May_25_2026_01_07_14_PM_oymcrf.png') center/cover no-repeat; }
-.cardamom-pods { background: url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779695506/ChatGPT_Image_May_25_2026_01_08_29_PM_tykhs1.png') center/cover no-repeat; }
+/* (Removed old specific Cloudinary image classes since we use img tags in the carousel now) */
