@@ -188,7 +188,7 @@ h1, h2, h3 {
 .hero {
     padding: 10rem 5%;
     background: linear-gradient(rgba(10, 15, 10, 0.6), rgba(0, 0, 0, 0.8)),
-                url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779695945/ChatGPT_Image_May_25_2026_01_28_27_PM_e2krck.png') center/cover no-repeat;
+                url('https://res.cloudinary.com/dfp6vcrcp/image/upload/v1779815429/banner_sg2gvl.png') center/cover no-repeat;
     border-bottom: 3px solid var(--primary-green);
 }
 .hero-content { max-width: 800px; }
