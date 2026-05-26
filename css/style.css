@@ -304,6 +304,10 @@ footer .logo img {
     padding: 6px;
     object-fit: contain;
 }
+footer .footer-credit a {
+    color: inherit;
+    text-decoration: none;
+}
 .footer-contact { margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.8; }
 .footer-rights { color: #e8f5e9; font-size: 0.85rem; }
 
