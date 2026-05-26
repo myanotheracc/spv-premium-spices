@@ -60,7 +60,8 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 0 5%; /* Removed vertical padding to lock the height */
+    height: 80px; /* FIXED HEIGHT: The white strip will never grow past this */
     background-color: var(--bg-pure-white);
     border-bottom: 2px solid var(--primary-green);
     position: sticky;
@@ -72,13 +73,20 @@ h1, h2, h3 {
     display: flex; 
     align-items: center; 
     text-decoration: none; 
+    position: relative;
+    width: 140px; /* Reserves space in the menu so text doesn't slide left */
+    height: 100%;
 }
 
 .logo img { 
-    height: 50px; /* Adjust this to make your logo bigger or smaller in the navbar */
+    position: absolute; /* Takes the image out of the height calculation */
+    top: 5px; /* Starts slightly below the top green bar */
+    height: 130px; /* BIG LOGO */
     width: auto; 
     object-fit: contain; 
     transition: transform 0.3s ease; 
+    z-index: 110; /* Ensures the hanging part stays above the hero image */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); 
 }
 
 .logo img:hover {
@@ -88,6 +96,27 @@ h1, h2, h3 {
 .nav-links { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
 .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
 .nav-links a:hover { color: var(--primary-green); }
+
+/* --- Social Media Icons in Navbar --- */
+.nav-socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    padding-left: 15px;
+    margin-left: 5px;
+}
+.nav-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    transition: color 0.3s, transform 0.3s;
+}
+.nav-socials a:hover {
+    color: var(--primary-green);
+    transform: translateY(-2px);
+}
 
 /* Hamburger Menu for Mobile */
 .hamburger {
@@ -126,7 +155,7 @@ h1, h2, h3 {
     border-radius: 4px;
 }
 
-/* WhatsApp Outline Button styling */
+/* WhatsApp Outline Button styling (Product Cards) */
 .btn-wa {
     display: inline-flex;
     align-items: center;
@@ -263,9 +292,47 @@ input:focus, textarea:focus { border-color: var(--primary-green); box-shadow: 0 
 /* Corporate Footer */
 footer { background-color: var(--primary-green); color: white; text-align: center; padding: 4rem 5%; }
 footer .logo { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-footer .logo img { height: 60px; /* Adjust footer logo size here */ filter: brightness(0) invert(1); /* Optional: This turns a dark logo white for the dark footer. Remove if your logo already looks good on dark backgrounds */ }
+footer .logo img { height: 90px; }
 .footer-contact { margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.8; }
 .footer-rights { color: #e8f5e9; font-size: 0.85rem; }
+
+/* Cursive Font for SPV Global Enterprises */
+.cursive-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+
+/* --- NEW: Floating WhatsApp Button --- */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-wa:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.floating-wa svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
+}
 
 /* ========================================= */
 /* MOBILE OPTIMIZATION MEDIA QUERIES         */
@@ -279,7 +346,7 @@ footer .logo img { height: 60px; /* Adjust footer logo size here */ filter: brig
     .hamburger { display: flex; }
     .nav-links {
         position: absolute;
-        top: 100%;
+        top: 100%; /* Will attach perfectly to the bottom of the 80px locked navbar */
         left: 0;
         width: 100%;
         background-color: var(--bg-pure-white);
@@ -294,6 +361,19 @@ footer .logo img { height: 60px; /* Adjust footer logo size here */ filter: brig
         display: flex; 
     }
     .nav-links li { margin-bottom: 1rem; }
+    
+    /* Center the socials on mobile */
+    .nav-socials {
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-left: 0;
+        padding-top: 15px;
+        margin-left: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
     .btn-nav { width: 200px; text-align: center; }
 
     /* Hero Section Mobile */
@@ -308,6 +388,19 @@ footer .logo img { height: 60px; /* Adjust footer logo size here */ filter: brig
     
     /* Highlight Bar */
     .highlight-bar { flex-direction: column; text-align: center; }
+
+    /* Make floating WA button slightly smaller on mobile screens */
+    .floating-wa {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-wa svg {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media (max-width: 480px) {
