@@ -42,8 +42,9 @@ h1, h2, h3 {
 }
 
 .top-bar-container {
-    display: inline-block;
-    animation: scroll-left 15s linear infinite;
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scroll-left 18s linear infinite;
 }
 
 .top-bar-container span {
@@ -51,8 +52,8 @@ h1, h2, h3 {
 }
 
 @keyframes scroll-left {
-    0% { transform: translateX(100vw); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* Header Navbar */
