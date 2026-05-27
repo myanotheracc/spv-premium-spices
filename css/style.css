@@ -77,32 +77,60 @@ h1, h2, h3 {
     z-index: 100;
 }
 
-/* --- LOGO OPTIMIZATIONS (Perfectly Round Badge) --- */
-.navbar .logo { 
-    display: flex; 
-    align-items: center; 
-    text-decoration: none; 
+/* --- BRAND & LOGO OPTIMIZATIONS --- */
+.brand-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    gap: 12px; 
+    z-index: 110;
+}
+
+.brand-container .logo { 
     position: relative;
-    width: 140px; /* Reserves space so navigation links don't slide left */
+    width: 100px; 
     height: 100%;
 }
 
-.navbar .logo img { 
+.brand-container .logo img { 
     position: absolute; 
-    top: 5px; /* Hangs slightly below the top */
-    height: 130px; 
-    width: 130px; /* Equal width and height for a perfect circle */
+    top: 6px;
+    height: 110px; 
+    width: 110px; 
     object-fit: contain; 
-    background-color: var(--bg-pure-white); /* Solid white inside the circle */
-    border-radius: 50%; /* Makes the logo perfectly round */
-    padding: 8px; /* Creates a clean white border/rim around the logo */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Soft shadow for the circular badge */
+    background-color: var(--bg-pure-white); 
+    border-radius: 50%; 
+    padding: 6px; 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
     transition: transform 0.3s ease; 
-    z-index: 110; 
 }
 
-.navbar .logo img:hover {
+.brand-container:hover .logo img {
     transform: scale(1.05);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.brand-text .company-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--title-blue);
+    line-height: 1.1;
+}
+
+.brand-text .tagline {
+    font-size: 0.75rem;
+    color: var(--primary-green);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .nav-links { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
@@ -392,17 +420,19 @@ footer .footer-credit a {
         padding: 0 20px; /* Gives nice spacing on the edges */
     }
     
-    /* Shrink the logo perfectly on mobile */
-    .navbar .logo {
-        width: 90px; /* Reduced width block */
-    }
+    /* Shrink the brand area perfectly on mobile */
+    .brand-container { gap: 10px; }
+    .brand-container .logo { width: 75px; }
     
-    .navbar .logo img {
-        height: 85px;
-        width: 85px;
-        top: 8px; /* Tucks it slightly further up on mobile so it doesn't block hero content */
-        padding: 5px;
+    .brand-container .logo img {
+        height: 75px;
+        width: 75px;
+        top: 12px; 
+        padding: 4px;
     }
+
+    .brand-text .company-name { font-size: 1.3rem; }
+    .brand-text .tagline { font-size: 0.55rem; letter-spacing: 0px; }
 
     /* Hamburger & Mobile Nav */
     .hamburger { display: flex; }
