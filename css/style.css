@@ -375,7 +375,11 @@ footer .footer-credit a {
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #FFFFFF;
+    color: blue;
+}
+
+.footer-rights .cursive-text {
+    color: white;
 }
 
 /* Floating WhatsApp Button */
@@ -498,4 +502,10 @@ footer .footer-credit a {
 @media (max-width: 480px) {
     .hero h1 { font-size: 2.2rem; }
     .cert-card { flex-direction: column; align-items: center; text-align: center; }
+
+    .footer-contact .footer-email,
+    .footer-contact .footer-phone {
+        display: block;
+        margin: 0.25rem 0;
+    }
 }
