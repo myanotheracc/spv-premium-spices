@@ -83,7 +83,7 @@ h1, h2, h3 {
     align-items: center;
     text-decoration: none;
     height: 100%;
-    gap: 12px; 
+    gap: 10px; 
     z-index: 110;
 }
 
@@ -133,7 +133,7 @@ h1, h2, h3 {
     letter-spacing: 0.5px;
 }
 
-.nav-links { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
+.nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
 .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
 .nav-links a:hover { color: var(--primary-green); }
 
