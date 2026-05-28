@@ -129,7 +129,6 @@ h1, h2, h3 {
     font-size: 0.75rem;
     color: var(--primary-green);
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
